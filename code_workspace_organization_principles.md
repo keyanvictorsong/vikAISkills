@@ -7,13 +7,31 @@ This document outlines principles for maintaining organized, scalable, and trace
 
 ## Core Principles
 
-### 1. One Folder Per Conversation/Task
+### 1. Goal-Based Top-Level Organization
+- **Top-level folders should represent the primary goal or domain**
+- All related subfolders, configurations, and resources live inside this goal folder
+- Makes the workspace self-documenting at a glance
+- Easy to share, archive, or move entire functional areas
+- Structure example:
+  ```
+  AI-Agent-PowerGiver/
+  ├── copilot-ai-agent/
+  ├── claude-ai-agent/
+  └── README.md
+  ```
+- **Benefits:**
+  - Clear domain boundaries
+  - Everything related to one goal is grouped together
+  - Easier to find and maintain related components
+  - Scales well as projects grow
+
+### 2. One Folder Per Conversation/Task
 - Each new conversation or task should be created within its own dedicated folder
 - This maintains clear separation between different work streams
 - Makes it easy to archive, share, or delete completed work
 - Example: `task_20251228_table_extraction_improvement/`
 
-### 2. Task-Specific Data and Output
+### 3. Task-Specific Data and Output
 - Non-recurring data and output results should live inside each task's folder
 - Keeps all related artifacts together for easy reference
 - When a task is complete, everything needed to understand it is in one place
@@ -25,13 +43,13 @@ This document outlines principles for maintaining organized, scalable, and trace
   └── scripts/
   ```
 
-### 3. Recurring Data in Separate Folder
+### 4. Recurring Data in Separate Folder
 - Shared or recurring datasets should be stored in a dedicated common folder
 - Prevents duplication across multiple task folders
 - Use symlinks or path references when tasks need access
 - Example: `shared_datasets/`, `common_resources/`
 
-### 4. Descriptive Folder Names (Long is OK)
+### 5. Descriptive Folder Names (Long is OK)
 - Folder names should be specific and self-documenting
 - Include key identifiers: date, purpose, model version, etc.
 - Avoid generic names like `test/`, `output/`, `data/`
@@ -40,7 +58,7 @@ This document outlines principles for maintaining organized, scalable, and trace
   - `step3_format_conversion_json_to_csv/`
   - `benchmark_gp22_vs_tsr21_20251228/`
 
-### 5. Step-Based Folder Structure
+### 6. Step-Based Folder Structure
 - Complex tasks with multiple steps should divide each step into its own folder
 - Each step folder contains its code and corresponding test code
 - Makes debugging and iteration on specific steps easier
@@ -58,7 +76,7 @@ This document outlines principles for maintaining organized, scalable, and trace
       └── test_generate.py
   ```
 
-### 6. Purpose-Named Tests
+### 7. Purpose-Named Tests
 - Test files should clearly indicate what they're testing
 - Include the functionality or scenario being tested in the name
 - Examples:
@@ -70,12 +88,22 @@ This document outlines principles for maintaining organized, scalable, and trace
 
 ## Folder Naming Conventions
 
-### Pattern
+### Top-Level Folders (Goal-Based)
+```
+[Primary-Goal-Or-Domain]
+```
+**Examples:**
+- `AI-Agent-PowerGiver/` - Contains all AI agent configuration tools
+- `Browser-Automation-Suite/` - Browser automation tools and scripts
+- `Data-Pipeline-Orchestration/` - ETL and data processing workflows
+- `API-Integration-Framework/` - API clients and integration utilities
+
+### Mid-Level Folders (Category/Component)
 ```
 [category]_[description]_[version/date]_[output_type]
 ```
 
-### Examples
+**Examples:**
 | Purpose | Folder Name |
 |---------|-------------|
 | Model testing output | `pixel_grid_2.2_output/` |
@@ -88,7 +116,8 @@ This document outlines principles for maintaining organized, scalable, and trace
 ## Quick Checklist
 
 Before starting a new task, ask:
-- [ ] Did I create a new folder for this task?
+- [ ] Is there a top-level goal folder for this domain, or do I need to create one?
+- [ ] Did I create a new folder for this task inside the appropriate goal folder?
 - [ ] Is the folder name specific and descriptive?
 - [ ] Are my steps separated into subfolders?
 - [ ] Are test files named after their purpose?
@@ -108,4 +137,4 @@ Before starting a new task, ask:
 
 ---
 
-*Last Updated: December 28, 2025*
+*Last Updated: January 1, 2026*

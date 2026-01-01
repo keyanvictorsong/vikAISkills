@@ -47,7 +47,8 @@
       "Bash(pytest:*)",
       "Bash(jest:*)",
       "Bash(mocha:*)",
-      "Bash(vitest:*)"
+      "Bash(vitest:*)",
+      "Bash(git mv:*)"
     ]
   }
 }
