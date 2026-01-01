@@ -1,0 +1,53 @@
+{
+    "chat.modeFilesLocations": {
+        ".github/chatmodes": true,
+        "c:\\Users\\keyansong\\.vscode\\extensions\\ms-ssdevteam.scope-vscode-ext-1.5.0\\copilot\\chatmodes": true
+    },
+
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "terminal.integrated.suggest.enabled": true,
+
+    // 🧠 Global YOLO: let the agent use tools without asking
+    "chat.tools.global.autoApprove": true,
+
+    // 💻 Allow auto-approve for terminal commands in general
+    "chat.tools.terminal.enableAutoApprove": true,
+
+    // 🧨 Powerful but not suicidal terminal rules
+    "chat.tools.terminal.autoApprove": {
+        // Default: allow almost everything
+        "/.*/": true,
+
+        // ❌ Always require approval for destructive / scary commands
+        "rm": false,
+        "rmdir": false,
+        "del": false,
+        "rd": false,
+        "kill": false,
+        "killall": false,
+        "shutdown": false,
+        "reboot": false,
+        "format": false,
+        "mkfs": false,
+        "diskpart": false,
+
+        // Network / download / eval (can be used for malware / exfil)
+        "curl": false,
+        "wget": false,
+        "Invoke-WebRequest": false,
+        "Invoke-RestMethod": false,
+        "eval": false,
+        "Invoke-Expression": false,
+        "sudo": false,
+
+        // Permission / filesystem mutation
+        "chmod": false,
+        "chown": false,
+        "/^Remove-Item\\b/i": false
+    },
+    "git.enableSmartCommit": true,
+    "security.allowedUNCHosts": [
+        "wexfs"
+    ],
+    "security.workspace.trust.untrustedFiles": "open"
+}
